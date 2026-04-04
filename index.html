@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    section[id] {
+      scroll-margin-top: 96px;
+    }
+
+    /* Updated Pill Style for Pure White Text Visibility */
+    .domain-pill {
+      @apply bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full text-[13px] font-extrabold tracking-widest border border-white/20 hover: border-[#7c5dfa] hover:bg-[#7c5dfa] transition-all duration-300 cursor-default shadow-lg;
+      /* Extra assurance for white text color */
+      color: #ffffff !important;
+    }
+
+    .mask-fade-edges {
+      mask-image: linear-gradient(to right,
+          transparent,
+          black 15%,
+          black 85%,
+          transparent);
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes marquee-reverse {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
+
+    .animate-marquee-reverse {
+      animation: marquee-reverse 30s linear infinite;
+    }
+
+    .animate-marquee:hover,
+    .animate-marquee-reverse:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    .shimmer-badge {
+      display: inline-block;
+      background: linear-gradient(105deg, #1a56db 40%, #5b8ef0 50%, #1a56db 60%);
+      background-size: 200% auto;
+      animation: shimmer 4s linear infinite;
+      color: #ffffff;
+      padding: 0 16px;
+      transform: skewX(-12deg);
+      border-radius: 2px;
+    }
+
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 24px;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0px 10px 30px rgba(108, 71, 255, 0.08);
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .feature-card .icon {
+      font-size: 24px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    .feature-card strong {
+      color: #1a154d;
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+  <!-- Navigation -->
+  <nav id="site-nav" class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-6">
+    <div class="max-w-[1200px] mx-auto flex items-center justify-between py-4">
+      <div class="flex items-center">
+        <a href="#home" class="text-2xl font-bold tracking-tight text-[#1a154d] whitespace-nowrap">
+          <img class="h-7" src="./assets/img/logo.svg" alt="eApply Logo">
+        </a>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <div class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+          <a href="#features" data-nav-link class="text-gray-600 hover:text-black transition">Features <span
+              class="ml-1">🔥</span></a>
+          <a href="#pricing" data-nav-link class="text-gray-600 hover:text-black transition">Pricing</a>
+          <a href="#testimonials" data-nav-link class="text-gray-600 hover:text-black transition">Testimonials</a>
+        </div>
+
+        <a href="./extension/eApply.zip" download
+          class="relative overflow-hidden inline-flex items-center gap-3 bg-[#0361f7] text-white text-sm font-medium px-5 py-2.5 rounded-full shadow-md shadow-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] group">
+          <span
+            class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 pointer-events-none"></span>
+          <img class="h-4 w-4 relative z-10" src="./assets/img/chrome.png" alt="Chrome">
+          <span class="relative z-10 font-semibold">Add to Chrome</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="relative">
+    <div class="absolute inset-0 -z-20 bg-white"></div>
+
+    <div class="absolute inset-0 -z-10 opacity-60"
+      style="background-image: url('https://res.cloudinary.com/dbyioi2qq/q_auto/v1688575297/static/0b965c02ec04e7b3dabdf8fb83db9751png_1688575296_91471.png'); background-repeat: repeat;">
+    </div>
+
+    <div class="absolute inset-0 -z-10"
+      style="background-image: url('https://res.cloudinary.com/dbyioi2qq/q_auto/v1688562136/static/group-24svg_1688562136_34363.svg'); background-size: contain; background-position: top center; background-repeat: no-repeat;">
+    </div>
+
+    <!-- Section: Hero -->
+    <section id="home" class="min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16">
+      <div class="max-w-[1200px] mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-7xl font-extrabold text-[#1a154d] tracking-tight mb-4 leading-[1.1] flex flex-col">
+          <span class="text-[#7c5dfa] block">Stop Wasting Time on Forms</span>
+          <span>Start Automating Them.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-500 font-medium">
+          eApply extracts data from documents and fills forms instantly with AI.
+        </p>
+
+        <div class="flex items-center justify-center gap-3 mb-10 mt-8">
+          <div class="flex -space-x-2">
+            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=1" alt="user" />
+            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=2" alt="user" />
+            <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?u=3" alt="user" />
+            <div
+              class="w-8 h-8 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] font-bold text-gray-600">
+              180+
+            </div>
+          </div>
+          <div
+            class="bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full border border-gray-100 shadow-sm text-sm text-gray-700 font-medium">
+            Join thousands of companies automating their forms with AI.
+          </div>
+        </div>
+
+        <div
+          class="relative w-full rounded-[24px] mt-10 mb-10 overflow-hidden shadow-[0_40px_100px_rgba(124,93,250,0.2)] bg-gradient-to-b from-[#7c5dfa] to-[#1a154d] p-0.5">
+          <div class="rounded-[22px] overflow-hidden bg-black">
+            <video
+              src="https://assets-v2.codedesign.ai/storage/v1/object/public/6408cc04a0c159bdf545f18a_3237eb1a/asset-749fa47e"
+              poster="https://assets-v2.codedesign.ai/storage/v1/object/public/6408cc04a0c159bdf545f18a_3237eb1a/asset-43dbd32a"
+              class="w-full h-auto block" autoplay loop muted playsinline></video>
+          </div>
+          <div class="absolute inset-0 pointer-events-none rounded-[24px] ring-1 ring-inset ring-white/10"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Feature Highlights -->
+    <section id="features" class="py-24">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a154d] leading-[1.15] max-w-3xl mx-auto">
+            A simple, familiar interface. Control
+            <span class="shimmer-badge">
+              <span style="display: inline-block; transform: skewX(12deg);">
+                Printing & Autofill
+              </span>
+            </span>
+            instantly.
+          </h2>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 items-stretch">
+
+          <!-- Auto Print -->
+          <div
+            class="relative flex-1 flex flex-col items-center text-center p-8 md:pt-20 md:pb-8 rounded-[40px] overflow-hidden group transition-all duration-500 shadow-2xl"
+            style="background-image: linear-gradient(135deg, rgba(92, 51, 255, 0.9) 0%, rgba(36, 0, 175, 0.85) 100%), url('https://res.cloudinary.com/dmuecdqxy/q_auto/v1731913693/static/group-8svg_1731913691_85041.svg'); background-position: center; background-size: cover;">
+
+            <div class="relative z-10 mb-8">
+              <div
+                class="inline-block bg-white/20 backdrop-blur-md px-5 py-1.5 rounded-full border border-white/30 mb-6">
+                <p class="text-[11px] font-bold uppercase tracking-widest text-white">
+                  Auto Print
+                </p>
+              </div>
+
+              <h3 class="text-2xl md:text-3xl font-bold text-white leading-tight max-w-[300px] mx-auto">
+                Instant printing when customers upload documents
+              </h3>
+
+              <p class="text-white/80 text-sm mt-4 max-w-[280px] mx-auto">
+                As soon as a customer uploads a document, it is automatically sent to print — no manual steps required.
+              </p>
+            </div>
+
+            <div
+              class="relative z-10 w-full max-w-[340px] mb-10 transition-transform duration-500 group-hover:scale-105">
+              <img src="./assets/img/feature-01.png" alt="Auto Print Feature" />
+            </div>
+          </div>
+
+          <!-- Auto Fill -->
+          <div
+            class="relative flex-1 flex flex-col items-center text-center p-8 md:pt-20 md:pb-8 rounded-[40px] border border-gray-200 bg-white/60 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.05)] group transition-all duration-500">
+
+            <div class="relative z-10 mb-8">
+              <div class="inline-block bg-[#1a154d] px-5 py-1.5 rounded-full mb-6">
+                <p class="text-[11px] font-bold uppercase tracking-widest text-white">
+                  Auto Fill
+                </p>
+              </div>
+
+              <h3 class="text-2xl md:text-3xl font-bold text-[#1a154d] leading-tight max-w-[300px] mx-auto">
+                Extract data & fill forms in one click
+              </h3>
+
+              <p class="text-gray-600 text-sm mt-4 max-w-[280px] mx-auto">
+                Upload a document once. We extract and store the data, so you can fill any form instantly with a single
+                click.
+              </p>
+            </div>
+
+            <div
+              class="relative z-10 w-full max-w-[340px] mb-10 transition-transform duration-500 group-hover:scale-105">
+              <img src="/assets/img/feature-02.png" alt="Auto Fill Feature" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <!-- Heading -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a154d] mb-4">
+            Simple, Transparent Pricing
+          </h2>
+          <p class="text-gray-500 max-w-xl mx-auto">
+            Pay only for the time you need. Start free and upgrade anytime.
+          </p>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Free Plan -->
+          <div
+            class="relative flex border border-[#04030319] flex-col p-8 gap-6 bg-white rounded-[25px] border border-[#0361f719] shadow-[0px_10px_36px_0px_#ebe6ff,0px_0px_0px_1px_rgba(3,97,247,0.06)] transition-transform duration-300 hover:-translate-y-1">
+            <div>
+              <h3 class="text-2xl font-bold text-[#0361f7] mb-2">Starter</h3>
+              <p class="text-gray-500 text-sm mb-4">Essential tools for individuals just getting started.</p>
+            </div>
+
+
+            <div class="mb-4">
+              <span class="text-4xl font-extrabold text-[#0361f7]">$0</span>
+              <span class="text-gray-400 text-sm">/always</span>
+            </div>
+
+            <ul class="space-y-3 text-sm text-gray-600 mb-6">
+              <li>✔ AI Form Filling (5 per day)</li>
+              <li>✔ Automatic Print (10 per day)</li>
+              <li>✔ Chat with Client</li>
+              <li>✔ Document Transfer</li>
+            </ul>
+
+            <a href="#"
+              class="mt-auto flex items-center justify-center py-3 rounded-full border border-[#0361f7] text-[#0361f7] font-semibold hover:bg-[#0361f7] hover:text-white transition">
+              Get Started
+            </a>
+          </div>
+
+          <!-- Monthly Plan -->
+          <div
+            class="relative flex flex-col p-8 gap-6 bg-gradient-to-r from-[#0361f7] to-[#0284f7] rounded-[25px] shadow-[0px_10px_36px_0px_#ebe6ff,0px_0px_0px_1px_rgba(3,97,247,0.1)] transition-transform duration-300 hover:-translate-y-1">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Professional</h3>
+              <p class="text-white text-sm mb-4">Everything you need for a growing business.</p>
+            </div>
+
+
+            <div class="mb-4">
+              <span class="text-4xl font-extrabold text-white">$19</span>
+              <span class="text-white/70 text-sm">/month</span>
+            </div>
+
+            <ul class="space-y-3 text-sm text-white/90 mb-6">
+              <li>✔ Unlimited AI Form Filling</li>
+              <li>✔ Unlimited Automatic Print</li>
+              <li>✔ Chat with Client</li>
+              <li>✔ Document Transfer</li>
+              <li>✔ Priority Support</li>
+            </ul>
+
+            <a href="#"
+              class="mt-auto flex items-center justify-center py-3 rounded-full bg-white text-[#0361f7] font-semibold hover:shadow-[#0361f7]/40 transition">
+              Start Free Trial
+            </a>
+          </div>
+
+          <!-- Yearly Plan -->
+          <div
+            class="relative flex border border-[#04030319] flex-col p-8 gap-6 bg-white rounded-[25px] border border-[#0361f719] shadow-[0px_10px_36px_0px_#ebe6ff,0px_0px_0px_1px_rgba(3,97,247,0.06)] transition-transform duration-300 hover:-translate-y-1">
+            <div>
+              <h3 class="text-xl font-bold text-[#0361f7] mb-2">Yearly Business</h3>
+              <p class="text-gray-500 text-sm mb-4">Maximum features for large-scale operations.</p>
+            </div>
+
+
+            <div class="mb-4">
+              <span class="text-4xl font-extrabold text-[#0361f7]">$199</span>
+              <span class="text-gray-400 text-sm">/year</span>
+            </div>
+
+            <ul class="space-y-3 text-sm text-gray-600 mb-6">
+              <li>✔ Unlimited AI Form Filling</li>
+              <li>✔ Unlimited Automatic Print</li>
+              <li>✔ Chat with Client</li>
+              <li>✔ Document Transfer</li>
+              <li>✔ Priority Support & Updates</li>
+              <li>✔ Analytics & Backups</li>
+            </ul>
+
+            <a href="#"
+              class="mt-auto flex items-center justify-center py-3 rounded-full border border-[#0361f7] text-[#0361f7] font-semibold hover:bg-[#0361f7] hover:text-white transition">
+              Subscribe Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Bottom Note -->
+        <div class="text-center mt-12">
+          <p class="text-gray-500 text-sm">
+            No card needed. Fully compatible with all mobile banking.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Testimonials -->
+    <section id="testimonials" class="py-24 bg-white">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-24">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-[#1a154d] leading-tight max-w-4xl mx-auto mb-10">
+            "Your time matters. So don’t waste it on manual form filling. Use eApply."
+          </h2>
+
+          <div class="flex items-center justify-center gap-4">
+            <img src="./assets/img/ceo.jpg" alt="Founder - [Nusrat Jahan]"
+              class="w-14 h-14 rounded-full object-cover" />
+            <div class="text-left">
+              <h4 class="font-bold text-[#1a154d] text-lg leading-tight">
+                Dwip Sarker
+              </h4>
+              <div class="flex items-center gap-2">
+                <p class="text-sm text-gray-500 font-medium">
+                  Founder, eApply
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+          <div class="flex flex-col">
+            <p class="text-[#1a154d] text-[15px] leading-relaxed font-medium mb-8">
+              eApply saved our front desk hours every day. We upload a PDF once, and the extension autofills the
+              form instantly — fewer mistakes, faster turnaround, and a much smoother customer experience.
+            </p>
+            <div class="mt-auto">
+              <h5 class="font-bold text-[#1a154d] text-lg">
+                Tanvir Ahmed, BD
+              </h5>
+              <p class="text-[11px] text-gray-400 font-bold uppercase tracking-wider mb-3">
+                on March 18, 2026, from Dhaka.
+              </p>
+              <div class="flex items-center gap-1 text-[#00b67a]">
+                <span class="text-xl">★★★★★</span>
+                <span class="text-[#1a154d] font-bold text-sm ml-2">5/5
+                  <span class="font-normal text-gray-400">Rating</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <p class="text-[#1a154d] text-[15px] leading-relaxed font-medium mb-8">
+              The auto‑print workflow is a game changer for us. When clients upload documents, it prints right away and
+              our staff can serve the next person instead of clicking through steps.
+            </p>
+            <div class="mt-auto">
+              <h5 class="font-bold text-[#1a154d] text-lg">
+                Farhana Rahman, BD
+              </h5>
+              <p class="text-[11px] text-gray-400 font-bold uppercase tracking-wider mb-3">
+                on February 6, 2026, from Chattogram.
+              </p>
+              <div class="flex items-center gap-1 text-[#00b67a]">
+                <span class="text-xl">★★★★★</span>
+                <span class="text-[#1a154d] font-bold text-sm ml-2">5/5
+                  <span class="font-normal text-gray-400">Rating</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <p class="text-[#1a154d] text-[15px] leading-relaxed font-medium mb-8">
+              Setup was quick and the UI feels familiar. Within one week we reduced form-filling time dramatically, and
+              the saved data makes repeat submissions almost effortless.
+            </p>
+            <div class="mt-auto">
+              <h5 class="font-bold text-[#1a154d] text-lg">Md. Hasan Mahmud, BD</h5>
+              <p class="text-[11px] text-gray-400 font-bold uppercase tracking-wider mb-3">
+                on January 21, 2026, from Sylhet.
+              </p>
+              <div class="flex items-center gap-1 text-[#00b67a]">
+                <span class="text-xl">★★★★★</span>
+                <span class="text-[#1a154d] font-bold text-sm ml-2">5/5
+                  <span class="font-normal text-gray-400">Rating</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="flex flex-col items-center justify-center gap-4">
+          <div class="flex -space-x-3">
+            <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=a"
+              alt="reviewer" />
+            <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=b"
+              alt="reviewer" />
+            <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=c"
+              alt="reviewer" />
+            <img class="w-10 h-10 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=d"
+              alt="reviewer" />
+          </div>
+          <a href="#" class="text-xl font-extrabold text-[#1a154d] hover:underline transition-all underline-offset-4">
+            See 180+ customer reviews
+          </a>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Section: Domains -->
+    <section id="domains" class="py-12 bg-white overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div
+          class="relative rounded-[32px] p-10 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-12 overflow-hidden shadow-[0_4px_114px_rgba(3,97,247,0.25)]"
+          style="
+              background-color: #0361f7;
+              background-image:
+                linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px),
+                linear-gradient(135deg, #0361f7 0%, #3b82f6 50%, #60a5fa 100%);
+              background-size: 32px 32px, 32px 32px, cover;
+            ">
+
+          <!-- Glow Effect (Soft White) -->
+          <div class="absolute -top-32 -right-32 w-80 h-80 bg-white opacity-20 blur-[120px] pointer-events-none"></div>
+
+          <!-- Left Content -->
+          <div class="relative z-10 flex-1 text-left">
+            <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">
+              <span class="font-extrabold"
+                style="background: linear-gradient(90deg, #ffffff, #67e8f9, #a5f3fc, #ffffff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shine 3s linear infinite;">eApply</span>
+              fills forms on all popular websites.
+            </h2>
+            <p class="text-blue-50 text-sm md:text-base leading-relaxed max-w-sm">
+              Ready to save time and effort? Install eApply and fill forms instantly.
+            </p>
+          </div>
+
+          <!-- Right Content (Marquee) -->
+          <div class="relative z-10 flex-1 w-full flex flex-col gap-5 overflow-hidden mask-fade-edges">
+
+            <div class="flex gap-4 animate-marquee whitespace-nowrap">
+              <span class="domain-pill">bpsc.teletalk.com.bd</span>
+              <span class="domain-pill">dpe.teletalk.com.bd</span>
+              <span class="domain-pill">br.teletalk.com.bd</span>
+              <span class="domain-pill">dnc.teletalk.com.bd</span>
+              <span class="domain-pill">dgfp.teletalk.com.bd</span>
+              <span class="domain-pill">bgb.teletalk.com.bd</span>
+              <span class="domain-pill">moedu.teletalk.com.bd</span>
+              <span class="domain-pill">alljobs.teletalk.com.bd</span>
+              <span class="domain-pill">bpsc.teletalk.com.bd</span>
+              <span class="domain-pill">dpe.teletalk.com.bd</span>
+            </div>
+
+            <div class="flex gap-4 animate-marquee-reverse whitespace-nowrap ml-[-150px]">
+              <span class="domain-pill">erecruitment.bb.org.bd</span>
+              <span class="domain-pill">mybdjobs.bdjobs.com</span>
+              <span class="domain-pill">chakri.com/jobs</span>
+              <span class="domain-pill">jobs.bikroy.com</span>
+              <span class="domain-pill">kormo.google.com</span>
+              <span class="domain-pill">skill.jobs/apply</span>
+              <span class="domain-pill">linkedin.com/jobs</span>
+              <span class="domain-pill">erecruitment.bb.org.bd</span>
+              <span class="domain-pill">mybdjobs.bdjobs.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-24 pb-12 border-t border-gray-100">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div class="space-y-4">
+            <a href="#" class="block font-bold tracking-tight text-[#1a154d]">
+              <img class="h-7" src="./assets/img/logo.svg" alt="eApply Logo">
+              <!-- CodeDesign<span class="text-[#7c5dfa]">.ai</span> -->
+            </a>
+            <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+              The world's most powerful AI website builder. Build, host, and
+              export high-performance websites in minutes.
+            </p>
+            <div class="flex items-center gap-4">
+              <a href="#"
+                class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-50 text-[#1a154d] hover:bg-[#7c5dfa] hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                </svg>
+              </a>
+              <a href="#"
+                class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-50 text-[#1a154d] hover:bg-[#7c5dfa] hover:text-white transition-all">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.335 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.335 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.335-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.335-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.058-1.69-.072-4.949-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-[#1a154d] mb-6">Product</h4>
+            <ul class="space-y-4 text-sm text-gray-500 font-medium">
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">AI Website Builder</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Templates</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">WordPress Sync</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Pricing</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-[#1a154d] mb-6">Resources</h4>
+            <ul class="space-y-4 text-sm text-gray-500 font-medium">
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Blog</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Help Center</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Affiliate Program</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold text-[#1a154d] mb-6">Legal</h4>
+            <ul class="space-y-4 text-sm text-gray-500 font-medium">
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Terms of Service</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">Cookie Policy</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-[#7c5dfa] transition-colors">GDPR</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-gray-400 font-medium">
+            © 2026 eApply.com - All rights reserved.
+          </p>
+          <div class="flex items-center gap-6 text-xs text-gray-400 font-medium">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              System Status: Operational
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const nav = document.querySelector("#site-nav");
+      const prefersReducedMotion =
+        window.matchMedia &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const navLinks = Array.from(
+        document.querySelectorAll('nav a[href^="#"][data-nav-link]')
+      ).filter((a) => a.getAttribute("href") !== "#");
+
+      const sections = navLinks
+        .map((a) => document.querySelector(a.getAttribute("href")))
+        .filter(Boolean);
+
+      const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
+
+      const setActiveLink = (activeId) => {
+        navLinks.forEach((a) => {
+          const isActive = a.getAttribute("href") === `#${activeId}`;
+          a.classList.toggle("text-black", isActive);
+          a.classList.toggle("text-gray-600", !isActive);
+        });
+      };
+
+      const scrollToSection = (section) => {
+        const top =
+          window.scrollY +
+          section.getBoundingClientRect().top -
+          getNavOffset() -
+          12;
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
+      };
+
+      navLinks.forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const href = a.getAttribute("href");
+          const target = href ? document.querySelector(href) : null;
+          if (!target) return;
+
+          e.preventDefault();
+          scrollToSection(target);
+          history.pushState(null, "", href);
+          setActiveLink(target.id);
+        });
+      });
+
+      if (sections.length) {
+        let activeId = null;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const candidates = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+            if (!candidates.length) return;
+            const nextId = candidates[0].target.id;
+            if (nextId && nextId !== activeId) {
+              activeId = nextId;
+              setActiveLink(activeId);
+            }
+          }, {
+            root: null,
+            threshold: [0.15, 0.3, 0.5, 0.75],
+            rootMargin: `-${getNavOffset() + 16}px 0px -60% 0px`,
+          }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        const initialHash = window.location.hash;
+        const initialTarget = initialHash ?
+          document.querySelector(initialHash) :
+          null;
+        setActiveLink((initialTarget && initialTarget.id) || sections[0].id);
+      }
+    })();
+  </script>
+</body>
+
+</html>
