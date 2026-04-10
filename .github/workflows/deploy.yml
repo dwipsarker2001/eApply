@@ -1,0 +1,54 @@
+name: Deploy Static HTML to EC2
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > private_key.pem
+          chmod 600 private_key.pem
+
+          # Upload only needed files (exclude git + workflow files)
+          rsync -avz --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            -e "ssh -i private_key.pem -o StrictHostKeyChecking=no" \
+            ./ ${EC2_USERNAME}@${EC2_HOST}:/tmp/site/
+
+          # Deploy on server
+          ssh -i private_key.pem -o StrictHostKeyChecking=no \
+            ${EC2_USERNAME}@${EC2_HOST} << 'EOF'
+
+            echo "Deploying to /var/www/html..."
+
+            sudo mkdir -p /var/www/html
+
+            # Sync instead of delete (safe)
+            sudo rsync -av --delete /tmp/site/ /var/www/html/
+
+            # Permissions
+            sudo chown -R www-data:www-data /var/www/html
+            sudo chmod -R 755 /var/www/html
+
+            # Cleanup
+            rm -rf /tmp/site
+
+            echo "✅ Deployment complete"
+          EOF
+
+          rm private_key.pem
