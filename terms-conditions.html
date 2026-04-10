@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+        body {
+            font-family: "Inter", sans-serif;
+        }
+
+        .legal-card {
+            @apply bg-white border border-gray-100 rounded-[24px] p-8 md: p-12 shadow-[0_10px_40px_rgba(0, 0, 0, 0.04)];
+        }
+
+        h2 {
+            @apply text-2xl font-bold text-[#1a154d] mt-10 mb-4 flex items-center gap-3;
+        }
+
+        p,
+        li {
+            @apply text-gray-600 leading-relaxed mb-4 text-sm md: text-base;
+        }
+
+        ul {
+            @apply list-disc pl-5 mb-6 space-y-2;
+        }
+
+        .accent-dot {
+            @apply w-2 h-2 bg-[#7c5dfa] rounded-full;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <nav class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 px-6">
+        <div class="max-w-[1000px] mx-auto flex items-center justify-between py-4">
+            <a href="index.html" class="flex items-center">
+                <img class="h-7" src="./assets/img/logo.svg" alt="eApply Logo">
+            </a>
+            <a href="index.html" class="text-sm font-semibold text-[#0361f7] hover:underline">← Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="relative pt-16 pb-24">
+        <div class="absolute inset-0 -z-10 opacity-40"
+            style="background-image: url('https://res.cloudinary.com/dbyioi2qq/q_auto/v1688575297/static/0b965c02ec04e7b3dabdf8fb83db9751png_1688575296_91471.png');">
+        </div>
+
+        <div class="max-w-[850px] mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-[#1a154d] tracking-tight">Terms and Conditions</h1>
+                <p class="mt-4 text-gray-500 font-medium">Last Updated: April 10, 2026</p>
+            </div>
+
+            <ul class="space-y-5 text-gray-700">
+
+                <li>
+                    <strong class="text-[#1a154d]">Acceptance of Terms:</strong>
+                    By installing or using the eApply Chrome extension (the “Service”), you agree to these Terms and
+                    Conditions.
+                    If you do not agree, do not use the Service.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">License:</strong>
+                    eApply grants you a limited, non-exclusive, non-transferable license to use the extension for
+                    personal or internal business purposes,
+                    solely to automate form filling as intended. You may not modify, distribute, resell, or
+                    reverse-engineer the extension.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Account and Subscription:</strong>
+                    Some features (e.g., unlimited form fills, instant printing) require a paid subscription.
+                    You agree to pay all fees for the plan you select. Subscriptions renew automatically each
+                    billing period unless canceled.
+                    You may cancel at any time; canceled accounts will revert to the free plan at period end.
+                    All payments are handled by a secure third-party processor; we do not store your credit card
+                    information.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Refunds:</strong>
+                    You may request a refund within 30 days of purchase if you are unsatisfied.
+                    Except as required by law, all payments are non-refundable after that period.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Acceptable Use:</strong>
+                    You agree not to use eApply for illegal or unauthorized purposes.
+                    Do not upload documents that you do not have rights to process.
+                    You also agree not to attempt to disable or harm the extension,
+                    nor to use it in a way that infringes others’ rights or violates any applicable law or
+                    regulation.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Intellectual Property:</strong>
+                    All intellectual property rights in eApply (including software, trademarks, and logos) are owned
+                    by DW Enterprise.
+                    The content, design, and code of the extension are proprietary.
+                    You acquire no rights to these beyond the limited license above.
+                    “eApply” and its logo are trademarks of DW Enterprise.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Disclaimer of Warranties:</strong>
+                    The Service is provided “as is” without warranties of any kind.
+                    eApply disclaims all warranties, whether express or implied,
+                    including merchantability or fitness for a particular purpose.
+                    We do not guarantee that the Service will be error-free or uninterrupted.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Limitation of Liability:</strong>
+                    To the fullest extent allowed by law, eApply (DW Enterprise) and its affiliates
+                    are not liable for any indirect, incidental, special, or consequential damages.
+                    Our maximum aggregate liability is limited to the amount you paid for the Service (if any),
+                    and will not exceed USD $50.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Updates and Termination:</strong>
+                    We may update or discontinue the Service at any time.
+                    We also reserve the right to suspend or terminate your access if you violate these terms.
+                    Upon termination, your license ends and you must delete all copies of the extension.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Governing Law:</strong>
+                    These terms are governed by the laws of Bangladesh.
+                    Any disputes will be subject to the exclusive jurisdiction of the courts of Bangladesh.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Changes to Terms:</strong>
+                    eApply may revise these Terms periodically.
+                    We will notify you by updating the “Last Updated” date.
+                    Your continued use of the Service after changes are posted means you accept the new terms.
+                </li>
+
+                <li>
+                    <strong class="text-[#1a154d]">Contact:</strong>
+                    For questions about these Terms or the Service, please contact:<br />
+                    DW Enterprise (eApply)<br />
+                    Email: email.dwip@gmail.com<br />
+                    Address: Sobuj Bagicha (7), Noyabazar, Sylhet-3100
+                </li>
+
+            </ul>
+
+            <div class="text-center mt-12">
+                <p class="text-xs text-gray-400">© 2026 eApply. All rights reserved. | Developed by Dwip Sarker</p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
