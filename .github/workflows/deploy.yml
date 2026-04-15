@@ -48,7 +48,7 @@ jobs:
             # Cleanup
             rm -rf /tmp/site
 
-            echo "✅ Deployment complete"
+            echo "Deployment complete"
           EOF
 
           rm private_key.pem
