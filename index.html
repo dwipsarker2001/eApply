@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -86,7 +86,10 @@
 
     .shimmer-badge {
       display: inline-block;
-      background: linear-gradient(105deg, #1a56db 40%, #5b8ef0 50%, #1a56db 60%);
+      background: linear-gradient(105deg,
+          #1a56db 40%,
+          #5b8ef0 50%,
+          #1a56db 60%);
       background-size: 200% auto;
       animation: shimmer 4s linear infinite;
       color: #ffffff;
@@ -143,7 +146,7 @@
     <div class="max-w-[1200px] mx-auto flex items-center justify-between py-4">
       <div class="flex items-center">
         <a href="#home" class="text-2xl font-bold tracking-tight text-[#1a154d] whitespace-nowrap">
-          <img class="h-7" src="./assets/img/logo.svg" alt="eApply Logo">
+          <img class="h-7" src="./assets/img/logo.svg" alt="eApply Logo" />
         </a>
       </div>
 
@@ -159,7 +162,7 @@
           class="relative overflow-hidden inline-flex items-center gap-3 bg-[#0361f7] text-white text-sm font-medium px-5 py-2.5 rounded-full shadow-md shadow-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] group">
           <span
             class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 pointer-events-none"></span>
-          <img class="h-4 w-4 relative z-10" src="./assets/img/chrome.png" alt="Chrome">
+          <img class="h-4 w-4 relative z-10" src="./assets/img/chrome.png" alt="Chrome" />
           <span class="relative z-10 font-semibold">Add to Chrome</span>
         </a>
       </div>
@@ -170,13 +173,17 @@
   <main class="relative">
     <div class="absolute inset-0 -z-20 bg-white"></div>
 
-    <div class="absolute inset-0 -z-10 opacity-60"
-      style="background-image: url('https://res.cloudinary.com/dbyioi2qq/q_auto/v1688575297/static/0b965c02ec04e7b3dabdf8fb83db9751png_1688575296_91471.png'); background-repeat: repeat;">
-    </div>
+    <div class="absolute inset-0 -z-10 opacity-60" style="
+          background-image: url(&quot;https://res.cloudinary.com/dbyioi2qq/q_auto/v1688575297/static/0b965c02ec04e7b3dabdf8fb83db9751png_1688575296_91471.png&quot;);
+          background-repeat: repeat;
+        "></div>
 
-    <div class="absolute inset-0 -z-10"
-      style="background-image: url('https://res.cloudinary.com/dbyioi2qq/q_auto/v1688562136/static/group-24svg_1688562136_34363.svg'); background-size: contain; background-position: top center; background-repeat: no-repeat;">
-    </div>
+    <div class="absolute inset-0 -z-10" style="
+          background-image: url(&quot;https://res.cloudinary.com/dbyioi2qq/q_auto/v1688562136/static/group-24svg_1688562136_34363.svg&quot;);
+          background-size: contain;
+          background-position: top center;
+          background-repeat: no-repeat;
+        "></div>
 
     <!-- Section: Hero -->
     <section id="home" class="min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-16">
@@ -186,7 +193,8 @@
           <span class="">Start Automating Them.</span>
         </h1>
         <p class="text-lg md:text-xl text-gray-500 font-medium">
-          eApply extracts data from documents and fills forms instantly with AI.
+          eApply extracts data from documents and fills forms instantly with
+          AI.
         </p>
 
         <div class="flex items-center justify-center gap-3 mb-10 mt-8">
@@ -208,7 +216,7 @@
         <div
           class="relative w-full rounded-[24px] mt-10 mb-10 overflow-hidden shadow-[0_40px_100px_rgba(124,93,250,0.2)] bg-gradient-to-b from-[#7c5dfa] to-[#1a154d] p-0.5">
           <div class="rounded-[22px] overflow-hidden bg-black">
-            <img src="./assets/videos/video-01.jpg" class="w-full h-auto block" alt="">
+            <img src="./assets/videos/video-01.jpg" class="w-full h-auto block" alt="" />
           </div>
           <div class="absolute inset-0 pointer-events-none rounded-[24px] ring-1 ring-inset ring-white/10"></div>
         </div>
@@ -222,7 +230,7 @@
           <h2 class="text-4xl md:text-5xl font-extrabold text-[#1a154d] leading-[1.15] max-w-3xl mx-auto">
             A simple, familiar interface. Control
             <span class="shimmer-badge">
-              <span style="display: inline-block; transform: skewX(12deg);">
+              <span style="display: inline-block; transform: skewX(12deg)">
                 Printing & Autofill
               </span>
             </span>
@@ -231,13 +239,21 @@
         </div>
 
         <div class="flex flex-col md:flex-row gap-8 items-stretch">
-
           <!-- Auto Print -->
           <div
             class="relative flex-1 flex flex-col items-center text-center p-8 md:pt-20 md:pb-8 rounded-[40px] overflow-hidden group transition-all duration-500 shadow-2xl"
-            style="background-image: linear-gradient(135deg, rgba(3, 97, 247, 0.95) 0%, rgba(0, 55, 180, 0.9) 50%, rgba(0, 35, 140, 0.95) 100%),
-            url('./assets/texture/texture-1.svg'); background-position: center; background-size: cover;">
-
+            style="
+                background-image:
+                  linear-gradient(
+                    135deg,
+                    rgba(3, 97, 247, 0.95) 0%,
+                    rgba(0, 55, 180, 0.9) 50%,
+                    rgba(0, 35, 140, 0.95) 100%
+                  ),
+                  url(&quot;./assets/texture/texture-1.svg&quot;);
+                background-position: center;
+                background-size: cover;
+              ">
             <div class="relative z-10 mb-8">
               <div
                 class="inline-block bg-white/20 backdrop-blur-md px-5 py-1.5 rounded-full border border-white/30 mb-6">
@@ -251,7 +267,8 @@
               </h3>
 
               <p class="text-white/80 text-sm mt-4 max-w-[280px] mx-auto">
-                As soon as a customer uploads a document, it is automatically sent to print — no manual steps required.
+                As soon as a customer uploads a document, it is automatically
+                sent to print — no manual steps required.
               </p>
             </div>
 
@@ -264,7 +281,6 @@
           <!-- Auto Fill -->
           <div
             class="relative flex-1 flex flex-col items-center text-center p-8 md:pt-20 md:pb-8 rounded-[40px] border border-gray-200 bg-white/60 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.05)] group transition-all duration-500">
-
             <div class="relative z-10 mb-8">
               <div class="inline-block bg-[#1a154d] px-5 py-1.5 rounded-full mb-6">
                 <p class="text-[11px] font-bold uppercase tracking-widest text-white">
@@ -277,8 +293,8 @@
               </h3>
 
               <p class="text-gray-600 text-sm mt-4 max-w-[280px] mx-auto">
-                Upload a document once. We extract and store the data, so you can fill any form instantly with a single
-                click.
+                Upload a document once. We extract and store the data, so you
+                can fill any form instantly with a single click.
               </p>
             </div>
 
@@ -287,7 +303,6 @@
               <img src="/assets/img/feature-02.png" alt="Auto Fill Feature" />
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -307,15 +322,15 @@
 
         <!-- Pricing Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
           <!-- Free Plan -->
           <div
             class="relative flex border border-[#04030319] flex-col p-8 gap-6 bg-white rounded-[25px] border border-[#0361f719] shadow-[0px_10px_36px_0px_#ebe6ff,0px_0px_0px_1px_rgba(3,97,247,0.06)] transition-transform duration-300 hover:-translate-y-1">
             <div>
               <h3 class="text-2xl font-bold text-[#0361f7] mb-2">Starter</h3>
-              <p class="text-gray-500 text-sm mb-4">Essential tools for individuals just getting started.</p>
+              <p class="text-gray-500 text-sm mb-4">
+                Essential tools for individuals just getting started.
+              </p>
             </div>
-
 
             <div class="mb-4">
               <span class="text-4xl font-extrabold text-[#0361f7]">$0</span>
@@ -340,9 +355,10 @@
             class="relative flex flex-col p-8 gap-6 bg-gradient-to-r from-[#0361f7] to-[#0284f7] rounded-[25px] shadow-[0px_10px_36px_0px_#ebe6ff,0px_0px_0px_1px_rgba(3,97,247,0.1)] transition-transform duration-300 hover:-translate-y-1">
             <div>
               <h3 class="text-xl font-bold text-white mb-2">Professional</h3>
-              <p class="text-white text-sm mb-4">Everything you need for a growing business.</p>
+              <p class="text-white text-sm mb-4">
+                Everything you need for a growing business.
+              </p>
             </div>
-
 
             <div class="mb-4">
               <span class="text-4xl font-extrabold text-white">$19</span>
@@ -367,10 +383,13 @@
           <div
             class="relative flex border border-[#04030319] flex-col p-8 gap-6 bg-white rounded-[25px] border border-[#0361f719] shadow-[0px_10px_36px_0px_#ebe6ff,0px_0px_0px_1px_rgba(3,97,247,0.06)] transition-transform duration-300 hover:-translate-y-1">
             <div>
-              <h3 class="text-xl font-bold text-[#0361f7] mb-2">Yearly Business</h3>
-              <p class="text-gray-500 text-sm mb-4">Maximum features for large-scale operations.</p>
+              <h3 class="text-xl font-bold text-[#0361f7] mb-2">
+                Yearly Business
+              </h3>
+              <p class="text-gray-500 text-sm mb-4">
+                Maximum features for large-scale operations.
+              </p>
             </div>
-
 
             <div class="mb-4">
               <span class="text-4xl font-extrabold text-[#0361f7]">$199</span>
@@ -407,7 +426,8 @@
       <div class="max-w-[1200px] mx-auto px-6">
         <div class="text-center mb-24">
           <h2 class="text-3xl md:text-4xl font-extrabold text-[#1a154d] leading-tight max-w-4xl mx-auto mb-10">
-            "Your time matters. So don’t waste it on manual form filling. Use eApply."
+            "Your time matters. So don’t waste it on manual form filling. Use
+            eApply."
           </h2>
 
           <div class="flex items-center justify-center gap-4">
@@ -429,8 +449,10 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
           <div class="flex flex-col">
             <p class="text-[#1a154d] text-[15px] leading-relaxed font-medium mb-8">
-              eApply saved our front desk hours every day. We upload a PDF once, and the extension autofills the
-              form instantly — fewer mistakes, faster turnaround, and a much smoother customer experience.
+              eApply saved our front desk hours every day. We upload a PDF
+              once, and the extension autofills the form instantly — fewer
+              mistakes, faster turnaround, and a much smoother customer
+              experience.
             </p>
             <div class="mt-auto">
               <h5 class="font-bold text-[#1a154d] text-lg">
@@ -449,8 +471,9 @@
 
           <div class="flex flex-col">
             <p class="text-[#1a154d] text-[15px] leading-relaxed font-medium mb-8">
-              The auto‑print workflow is a game changer for us. When clients upload documents, it prints right away and
-              our staff can serve the next person instead of clicking through steps.
+              The auto‑print workflow is a game changer for us. When clients
+              upload documents, it prints right away and our staff can serve
+              the next person instead of clicking through steps.
             </p>
             <div class="mt-auto">
               <h5 class="font-bold text-[#1a154d] text-lg">
@@ -469,11 +492,14 @@
 
           <div class="flex flex-col">
             <p class="text-[#1a154d] text-[15px] leading-relaxed font-medium mb-8">
-              Setup was quick and the UI feels familiar. Within one week we reduced form-filling time dramatically, and
-              the saved data makes repeat submissions almost effortless.
+              Setup was quick and the UI feels familiar. Within one week we
+              reduced form-filling time dramatically, and the saved data makes
+              repeat submissions almost effortless.
             </p>
             <div class="mt-auto">
-              <h5 class="font-bold text-[#1a154d] text-lg">Md. Hasan Mahmud, BD</h5>
+              <h5 class="font-bold text-[#1a154d] text-lg">
+                Md. Hasan Mahmud, BD
+              </h5>
               <p class="text-[11px] text-gray-400 font-bold uppercase tracking-wider mb-3">
                 on January 21, 2026, from Sylhet.
               </p>
@@ -512,30 +538,48 @@
           style="
               background-color: #0361f7;
               background-image:
-                linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px),
+                linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(
+                  90deg,
+                  rgba(255, 255, 255, 0.07) 1px,
+                  transparent 1px
+                ),
                 linear-gradient(135deg, #0361f7 0%, #3b82f6 50%, #60a5fa 100%);
-              background-size: 32px 32px, 32px 32px, cover;
+              background-size:
+                32px 32px,
+                32px 32px,
+                cover;
             ">
-
           <!-- Glow Effect (Soft White) -->
           <div class="absolute -top-32 -right-32 w-80 h-80 bg-white opacity-20 blur-[120px] pointer-events-none"></div>
 
           <!-- Left Content -->
           <div class="relative z-10 flex-1 text-left">
             <h2 class="text-white text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">
-              <span class="font-extrabold"
-                style="background: linear-gradient(90deg, #ffffff, #67e8f9, #a5f3fc, #ffffff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shine 3s linear infinite;">eApply</span>
+              <span class="font-extrabold" style="
+                    background: linear-gradient(
+                      90deg,
+                      #ffffff,
+                      #67e8f9,
+                      #a5f3fc,
+                      #ffffff
+                    );
+                    background-size: 200% auto;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    animation: shine 3s linear infinite;
+                  ">eApply</span>
               fills forms on all popular websites.
             </h2>
             <p class="text-blue-50 text-sm md:text-base leading-relaxed max-w-sm">
-              Ready to save time and effort? Install eApply and fill forms instantly.
+              Ready to save time and effort? Install eApply and fill forms
+              instantly.
             </p>
           </div>
 
           <!-- Right Content (Marquee) -->
           <div class="relative z-10 flex-1 w-full flex flex-col gap-5 overflow-hidden mask-fade-edges">
-
             <div class="flex gap-4 animate-marquee whitespace-nowrap">
               <span class="domain-pill">bpsc.teletalk.com.bd</span>
               <span class="domain-pill">dpe.teletalk.com.bd</span>
@@ -571,12 +615,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div class="space-y-4">
             <a href="#" class="block font-bold tracking-tight text-[#1a154d]">
-              <img class="h-7" src="./assets/img/logo.svg" alt="eApply Logo">
+              <img class="h-7" src="./assets/img/logo.svg" alt="eApply Logo" />
               <!-- CodeDesign<span class="text-[#7c5dfa]">.ai</span> -->
             </a>
             <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
-              eApply automates form filling and printing using AI, saving time, reducing errors, and boosting
-              productivity.
+              eApply automates form filling and printing using AI, saving
+              time, reducing errors, and boosting productivity.
             </p>
             <div class="flex items-center gap-4">
               <a href="#"
@@ -674,14 +718,15 @@
         window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       const navLinks = Array.from(
-        document.querySelectorAll('nav a[href^="#"][data-nav-link]')
+        document.querySelectorAll('nav a[href^="#"][data-nav-link]'),
       ).filter((a) => a.getAttribute("href") !== "#");
 
       const sections = navLinks
         .map((a) => document.querySelector(a.getAttribute("href")))
         .filter(Boolean);
 
-      const getNavOffset = () => (nav ? nav.getBoundingClientRect().height : 0);
+      const getNavOffset = () =>
+        nav ? nav.getBoundingClientRect().height : 0;
 
       const setActiveLink = (activeId) => {
         navLinks.forEach((a) => {
@@ -735,7 +780,7 @@
             root: null,
             threshold: [0.15, 0.3, 0.5, 0.75],
             rootMargin: `-${getNavOffset() + 16}px 0px -60% 0px`,
-          }
+          },
         );
 
         sections.forEach((section) => observer.observe(section));
