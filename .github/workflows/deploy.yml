@@ -4,27 +4,32 @@ on:
   push:
     branches:
       - main
+      - deploy
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy via SSH
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
         run: |
-          echo "$SSH_PRIVATE_KEY" > private_key.pem
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
           chmod 600 private_key.pem
 
+      - name: Deploy to EC2
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+        run: |
           ssh -i private_key.pem -o StrictHostKeyChecking=no \
-          $SSH_USER@$SSH_HOST << 'EOF'
+          "${EC2_USERNAME}@${EC2_HOST}" << 'EOF'
 
             cd /var/www/html
 
-            echo "Updating static site..."
+            echo "Deploy start....."
 
             git fetch origin
             git reset --hard origin/main
@@ -33,5 +38,6 @@ jobs:
 
           EOF
 
-      - name: Cleanup
+      - name: Cleanup SSH key
+        if: always()
         run: rm -f private_key.pem
