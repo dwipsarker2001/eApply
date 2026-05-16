@@ -25,7 +25,7 @@ jobs:
 
             cd /var/www/html
 
-            echo "Updating static site..."
+            echo "Deploy start....."
 
             git fetch origin
             git reset --hard origin/main
